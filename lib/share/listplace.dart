@@ -139,20 +139,23 @@ class _ListTravelState extends State<ListTravel> {
     }
   }
 
-  void _createNewTravel(BuildContext context) async {
-    String result = await Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => FormTravel(ModelTravel('', '', ''))));
-    if (result == 'save') {
-      db.getAllTravel().then((travels) {
-        setState(() {
-          items.clear();
-          travels.forEach((travel) {
-            items.add(ModelTravel.fromMap(travel));
-          });
-        });
-      });
-    }
-  }
+  // void _createNewTravel(BuildContext context, ModelTravel modelTravel) async {
+  //   // String result = await Navigator.push(
+  //   //     context,
+  //   //     MaterialPageRoute(
+  //   //         builder: (context) => FormTravel(ModelTravel('', '', ''))));
+
+  //    String result = await Navigator.push(
+  //       context, MaterialPageRoute(builder: (context) => FormTravel(modelTravel)));
+  //   if (result == 'save') {
+  //     db.getAllTravel().then((travels) {
+  //       setState(() {
+  //         items.clear();
+  //         travels.forEach((travel) {
+  //           items.add(ModelTravel.fromMap(travel));
+  //         });
+  //       });
+  //     });
+  //   }
+  // }
 }

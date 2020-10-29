@@ -1,6 +1,6 @@
-
 import 'package:aplikasi_wisata/geolocation.dart';
 import 'package:aplikasi_wisata/homepage.dart';
+import 'package:aplikasi_wisata/share/listplace.dart';
 import 'package:aplikasi_wisata/share/model.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocation/geolocation.dart';
@@ -21,8 +21,6 @@ class _FormTravelState extends State<FormTravel> {
   TextEditingController _deskripsiLokasiControler;
   TextEditingController _petaLokasiControler;
 
-  
-
   @override
   void initState() {
     super.initState();
@@ -42,7 +40,7 @@ class _FormTravelState extends State<FormTravel> {
         backgroundColor: Colors.black,
       ),
       body: ListView(
-                   shrinkWrap: true,
+        shrinkWrap: true,
         padding: EdgeInsets.all(16),
         children: <Widget>[
           TextField(
@@ -72,30 +70,32 @@ class _FormTravelState extends State<FormTravel> {
             decoration: InputDecoration(
                 labelText: 'Peta Lokasi',
                 suffixIcon: IconButton(
-                  icon: Icon(Icons.map,),iconSize: 30,
+                  icon: Icon(
+                    Icons.map,
+                  ),
+                  iconSize: 30,
                   color: Colors.black,
-                onPressed: (){
-                   Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => DetailMap(tosave: context,)));
-                },
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => DetailMap(
+                              tosave: context,
+                            )));
+                  },
                 ),
-      
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20))),
-                  
           ),
-   
-      
-              
           SizedBox(
             height: 5,
           ),
-
-          RaisedButton(onPressed: (){
-            Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => MyApp()));
-          }, child: Text("Choose Image"),color: Colors.blue,),
-         
+          RaisedButton(
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => MyApp()));
+            },
+            child: Text("Choose Image"),
+            color: Colors.blue,
+          ),
           RaisedButton(
               color: Colors.black,
               child: (widget.modelTravel.id != null)
@@ -131,7 +131,9 @@ class _FormTravelState extends State<FormTravel> {
                     ),
                   )
                       .then((_) {
-                    Navigator.pop(context, 'save');
+                    // Navigator.pop(context, 'save');
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ListTravel()));
                   });
                 }
               })
