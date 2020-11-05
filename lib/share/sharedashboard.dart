@@ -59,7 +59,9 @@ class _ShareDashboardState extends State<ShareDashboard> {
                     ),
                     backgroundColor: Colors.black,
                     onPressed: () {
-                      FormTravel(ModelTravel("","",""));
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) =>
+                              FormTravel(ModelTravel("", "", ""))));
                     }),
               ),
               SizedBox(
