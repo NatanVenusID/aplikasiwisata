@@ -59,7 +59,7 @@ class _ShareDashboardState extends State<ShareDashboard> {
                     ),
                     backgroundColor: Colors.black,
                     onPressed: () {
-                      
+                      FormTravel(ModelTravel("","",""));
                     }),
               ),
               SizedBox(
@@ -106,20 +106,20 @@ class _ShareDashboardState extends State<ShareDashboard> {
     // }),
   }
 
-  // void _createNewTravel(BuildContext context) async {
-  //   String result = await Navigator.push(
-  //       context,
-  //       MaterialPageRoute(
-  //           builder: (context) => FormTravel(ModelTravel('', '', ''))));
-  //   if (result == 'save') {
-  //     db.getAllTravel().then((travels) {
-  //       setState(() {
-  //         items.clear();
-  //         travels.forEach((travel) {
-  //           items.add(ModelTravel.fromMap(travel));
-  //         });
-  //       });
-  //     });
-  //   }
-  // }
+  void _createNewTravel(BuildContext context) async {
+    String result = await Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => FormTravel(ModelTravel('', '', ''))));
+    if (result == 'save') {
+      db.getAllTravel().then((travels) {
+        setState(() {
+          items.clear();
+          travels.forEach((travel) {
+            items.add(ModelTravel.fromMap(travel));
+          });
+        });
+      });
+    }
+  }
 }
