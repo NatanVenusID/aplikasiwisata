@@ -3,8 +3,6 @@ import 'package:aplikasi_wisata/homepage.dart';
 import 'package:aplikasi_wisata/share/listplace.dart';
 import 'package:aplikasi_wisata/share/model.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocation/geolocation.dart';
-
 import 'dbhelper.dart';
 
 class FormTravel extends StatefulWidget {
